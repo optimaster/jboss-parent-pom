@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.jboss</groupId>
-  <version>21</version>
+  <version>21-Optimaster</version>
   <artifactId>jboss-parent</artifactId>
 
   <packaging>pom</packaging>
@@ -18,6 +18,17 @@
     <system>JIRA</system>
     <url>https://issues.jboss.org/</url>
   </issueManagement>
+
+  <distributionManagement>
+    <repository>
+      <id>optimaster-releases</id>
+      <url>https://develop.optimaster.eu/artifactory/ext-release-local</url>
+    </repository>
+    <snapshotRepository>
+      <id>optimaster-snapshots</id>
+      <url>https://develop.optimaster.eu/artifactory/ext-snapshot-local</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <scm>
     <connection>scm:git:git@github.com:jboss/jboss-parent-pom.git</connection>
@@ -847,9 +858,6 @@
     </profile>
     <profile>
        <id>doclint-java8-disable</id>
-       <activation>
-         <jdk>[1.8,)</jdk>
-       </activation>
        <properties>
          <javadoc.additional.params>-Xdoclint:none</javadoc.additional.params>
        </properties>
@@ -883,18 +891,5 @@
     </profile>
 
   </profiles>
-
-  <distributionManagement>
-    <repository>
-      <id>jboss-releases-repository</id>
-      <name>JBoss Releases Repository</name>
-      <url>${jboss.releases.repo.url}</url>
-    </repository>
-    <snapshotRepository>
-      <id>jboss-snapshots-repository</id>
-      <name>JBoss Snapshots Repository</name>
-      <url>${jboss.snapshots.repo.url}</url>
-    </snapshotRepository>
-  </distributionManagement>
 
 </project>
